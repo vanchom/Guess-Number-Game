@@ -28,26 +28,24 @@ namespace GuessNumber
                 guessNumber = Getguess();
                 switch (guessNumber) {
                     case (OurNumber):
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("you are correct!! Well Done!!");
+                        Tool.ColorFulWriteLine("You are correct!! Well Done!!", ConsoleColor.Green);
+                        //Console.WriteLine("you are correct!! Well Done!!");
                         n=0;
                         break;
                     case (1):
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("It's too low");
+                        Tool.ColorFulWriteLine("It's too low", ConsoleColor.Blue);
                         break;
                     case (100):
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("It is too high");
+                        Tool.ColorFulWriteLine("It's too high", ConsoleColor.Red);
                         break;
                     default:
                         if (guessNumber < OurNumber)
                         {
-                            Console.WriteLine("Your number is too low");
+                            Tool.ColorFulWriteLine("Your number is too low", ConsoleColor.Yellow);
                         }
                         else if (guessNumber > OurNumber)
                         {
-                            Console.WriteLine("Your number is too high");
+                            Tool.ColorFulWriteLine("Your number is too high",ConsoleColor.Magenta);
                         }
                         break;
                 }
