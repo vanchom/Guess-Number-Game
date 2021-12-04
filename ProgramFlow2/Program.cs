@@ -12,7 +12,7 @@ namespace GuessNumber
         {
             int result = 0;
 
-            string numberTries = "Please guess the number between 0 to 100";
+            string numberTries = "Please guess the number between 1 to 50";
             Console.WriteLine(numberTries);
             string answer = Console.ReadLine();
             Int32.TryParse(answer, out result);
@@ -24,9 +24,9 @@ namespace GuessNumber
             const int OurNumber = 10;
             int guessNumber = 0;
             int tries = 0;
-            int n = 5;
+          
 
-            for (n = 5; n > 0; n--)
+            for (int n = 5; n > 0; n--)
             {
                
                 guessNumber = Getguess();
@@ -58,12 +58,19 @@ namespace GuessNumber
                             Console.WriteLine($"You have tried {tries} times");
                             Tool.ColorFulWriteLine($"You have {n-1} times to guess a number", ConsoleColor.Red);
                         }
-                        else if (guessNumber > OurNumber)
+                        else if (guessNumber > OurNumber && guessNumber <= 50)
                         {
                             Tool.ColorFulWriteLine("Your number is high",ConsoleColor.Magenta);
                             tries += 1;
                             Console.WriteLine($"You have tried {tries} times");
                             Tool.ColorFulWriteLine($"You have {n-1} times to guess a number", ConsoleColor.Red);
+                        }
+                        else if (guessNumber > 50)
+                        {
+                            Tool.ColorFulWriteLine("Please enter a number between 1  to 50 ", ConsoleColor.Cyan);
+                            tries += 1;
+                            Console.WriteLine($"You have tried {tries} times");
+                            Tool.ColorFulWriteLine($"You have {n - 1} times to guess a number", ConsoleColor.Red);
                         }
                         break;
                 }
